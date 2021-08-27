@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "openfoodfacts-logo-en.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
