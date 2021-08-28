@@ -21,7 +21,7 @@ class MainScreenViewController: UIViewController {
         setupSearchController()
     }
 
-    fileprivate func setupSearchController() {
+    private func setupSearchController() {
         searchController.searchBar.placeholder = "Поиск по названию или штрихкоду"
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -29,7 +29,7 @@ class MainScreenViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
     }
 
-    fileprivate func setupUI() {
+    private func setupUI() {
         navigationItem.title = "Поиск"
         navigationItem.searchController = searchController
         view.backgroundColor = .white
@@ -46,8 +46,10 @@ extension MainScreenViewController: UISearchResultsUpdating {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        presenter.getData(text: searchBar.text!, page: 0)
     }
 }
+
 extension MainScreenViewController: UISearchBarDelegate {
 
 }

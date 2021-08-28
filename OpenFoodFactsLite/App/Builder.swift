@@ -13,9 +13,9 @@ protocol BuilderProtocol {
 
 class ModuleBuilder: BuilderProtocol {
     func createMainScreenModule(router: RouterProtocol) -> UIViewController {
-        let networkService = NetworkService()
+        let networkBuilder = NetworkBuilder()
         let view = MainScreenViewController()
-        let presenter = MainPresenter(view: view, networkService: networkService, router: router)
+        let presenter = MainPresenter(view: view, networkBuilder: networkBuilder, router: router)
         view.presenter = presenter
         return view
     }
