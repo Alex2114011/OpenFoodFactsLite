@@ -14,7 +14,8 @@ protocol MainViewProtocol: AnyObject {
 
 protocol MainViewPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, networkBuilder: NetworkBuilderProtocol, router: RouterProtocol)
-    func getData(text: String, page: Int)
+    func getProductBarCode(searchText: String)
+    func getProductSearch(searchText: String, page: Int)
 }
 
 class MainPresenter: MainViewPresenterProtocol {
@@ -27,14 +28,6 @@ class MainPresenter: MainViewPresenterProtocol {
         self.view = view
         self.networkBuilder = networkBuilder
         self.router = router
-    }
-
-    func getData(text: String, page: Int) {
-        if Int(text) != nil {
-            getProductBarCode(searchText: text)
-        } else {
-            getProductSearch(searchText: text, page: page)
-        }
     }
 
     func getProductBarCode(searchText: String) {
@@ -50,7 +43,7 @@ class MainPresenter: MainViewPresenterProtocol {
     }
 
     func getProductSearch(searchText: String, page: Int) {
-    let service = networkBuilder.createSearchService()
+        let service = networkBuilder.createSearchService()
         service.getSearchProduct(searchText: searchText, page: page) { result in
             switch result {
             case .success(let data):

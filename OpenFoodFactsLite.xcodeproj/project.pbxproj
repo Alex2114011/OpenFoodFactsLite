@@ -83,6 +83,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		FA9D9F5026DBCF65006597BA /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		FADDCAB026D94E1100B9B4A8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +109,7 @@
 		FADDCABB26D94E1100B9B4A8 /* OpenFoodFactsLite */ = {
 			isa = PBXGroup;
 			children = (
+				FA9D9F5026DBCF65006597BA /* New Group */,
 				FADDCAD526D9538D00B9B4A8 /* App */,
 				FADDCAD626D953BD00B9B4A8 /* MainScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
