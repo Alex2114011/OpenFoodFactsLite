@@ -33,6 +33,13 @@ class Router: RouterProtocol {
             navigationController.viewControllers = [mainScreenViewController]
         }
     }
+    func showList() {
+        if let navigationController = navigationController {
+            guard let listViewController = moduleBuilder?.createListScreenModule(router: self) else {
+                return }
+            navigationController.pushViewController(listViewController, animated: true)
+        }
+    }
 
     func popToRoot() {
         if let navigationController = navigationController {

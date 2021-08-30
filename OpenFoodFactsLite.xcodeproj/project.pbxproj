@@ -14,6 +14,11 @@
 		FA9D9F4526DA2295006597BA /* NetworkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F4426DA2295006597BA /* NetworkBuilder.swift */; };
 		FA9D9F4726DA22D6006597BA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F4626DA22D6006597BA /* HTTPMethod.swift */; };
 		FA9D9F4D26DA617A006597BA /* BarCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F4C26DA617A006597BA /* BarCodeModel.swift */; };
+		FA9D9F7526DC0DB2006597BA /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F7426DC0DB2006597BA /* ListPresenter.swift */; };
+		FA9D9F7826DC0DEC006597BA /* ListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F7626DC0DEC006597BA /* ListScreenViewController.swift */; };
+		FA9D9F7926DC0DEC006597BA /* ListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9D9F7726DC0DEC006597BA /* ListScreenViewController.xib */; };
+		FA9D9F7D26DC0E18006597BA /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F7B26DC0E18006597BA /* ListTableViewCell.swift */; };
+		FA9D9F7E26DC0E18006597BA /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9D9F7C26DC0E18006597BA /* ListTableViewCell.xib */; };
 		FADDCABD26D94E1100B9B4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCABC26D94E1100B9B4A8 /* AppDelegate.swift */; };
 		FADDCABF26D94E1100B9B4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCABE26D94E1100B9B4A8 /* SceneDelegate.swift */; };
 		FADDCAC626D94E1200B9B4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 		FA9D9F4426DA2295006597BA /* NetworkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBuilder.swift; sourceTree = "<group>"; };
 		FA9D9F4626DA22D6006597BA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		FA9D9F4C26DA617A006597BA /* BarCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeModel.swift; sourceTree = "<group>"; };
+		FA9D9F7426DC0DB2006597BA /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		FA9D9F7626DC0DEC006597BA /* ListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenViewController.swift; sourceTree = "<group>"; };
+		FA9D9F7726DC0DEC006597BA /* ListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListScreenViewController.xib; sourceTree = "<group>"; };
+		FA9D9F7B26DC0E18006597BA /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		FA9D9F7C26DC0E18006597BA /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		FADDCAB926D94E1100B9B4A8 /* OpenFoodFactsLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFoodFactsLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDCABC26D94E1100B9B4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADDCABE26D94E1100B9B4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,11 +93,48 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		FA9D9F5026DBCF65006597BA /* New Group */ = {
+		FA9D9F7026DC0203006597BA /* ListScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				FA9D9F7326DC022B006597BA /* Model */,
+				FA9D9F7226DC0223006597BA /* View */,
+				FA9D9F7126DC0219006597BA /* Presenter */,
+			);
+			path = ListScreenModule;
+			sourceTree = "<group>";
+		};
+		FA9D9F7126DC0219006597BA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA9D9F7426DC0DB2006597BA /* ListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FA9D9F7226DC0223006597BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA9D9F7626DC0DEC006597BA /* ListScreenViewController.swift */,
+				FA9D9F7726DC0DEC006597BA /* ListScreenViewController.xib */,
+				FA9D9F7A26DC0DF2006597BA /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA9D9F7326DC022B006597BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA9D9F7A26DC0DF2006597BA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA9D9F7B26DC0E18006597BA /* ListTableViewCell.swift */,
+				FA9D9F7C26DC0E18006597BA /* ListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FADDCAB026D94E1100B9B4A8 = {
@@ -109,7 +156,7 @@
 		FADDCABB26D94E1100B9B4A8 /* OpenFoodFactsLite */ = {
 			isa = PBXGroup;
 			children = (
-				FA9D9F5026DBCF65006597BA /* New Group */,
+				FA9D9F7026DC0203006597BA /* ListScreenModule */,
 				FADDCAD526D9538D00B9B4A8 /* App */,
 				FADDCAD626D953BD00B9B4A8 /* MainScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
@@ -234,9 +281,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9D9F7926DC0DEC006597BA /* ListScreenViewController.xib in Resources */,
 				FADDCAC926D94E1200B9B4A8 /* LaunchScreen.storyboard in Resources */,
 				FADDCAC626D94E1200B9B4A8 /* Assets.xcassets in Resources */,
 				FADDCAE126D9544500B9B4A8 /* MainScreenViewController.xib in Resources */,
+				FA9D9F7E26DC0E18006597BA /* ListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,9 +333,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9D9F7826DC0DEC006597BA /* ListScreenViewController.swift in Sources */,
 				FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */,
 				FADDCADD26D9542700B9B4A8 /* MainPresenter.swift in Sources */,
+				FA9D9F7526DC0DB2006597BA /* ListPresenter.swift in Sources */,
 				FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */,
+				FA9D9F7D26DC0E18006597BA /* ListTableViewCell.swift in Sources */,
 				FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */,
 				FA9D9F4326DA226F006597BA /* URLPrepare.swift in Sources */,
 				FADDCAE026D9544500B9B4A8 /* MainScreenViewController.swift in Sources */,

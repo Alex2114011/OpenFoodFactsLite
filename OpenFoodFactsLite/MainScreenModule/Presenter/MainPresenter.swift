@@ -22,7 +22,7 @@ class MainPresenter: MainViewPresenterProtocol {
 
     weak var view: MainViewProtocol!
     var networkBuilder: NetworkBuilderProtocol!
-    let router: RouterProtocol?
+    var router: RouterProtocol?
 
     required init(view: MainViewProtocol, networkBuilder: NetworkBuilderProtocol, router: RouterProtocol) {
         self.view = view
