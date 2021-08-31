@@ -11,13 +11,14 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameProductLabel: UILabel!
     @IBOutlet weak var manufacturerLabel: UILabel!
+    @IBOutlet weak var capacityLabel: UILabel!
     @IBOutlet weak var nutriScoreImageView: UIImageView!
     @IBOutlet weak var novaImageView: UIImageView!
     @IBOutlet weak var ecoImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

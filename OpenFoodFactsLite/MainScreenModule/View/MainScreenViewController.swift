@@ -9,7 +9,7 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
 
-  private lazy var searchController = UISearchController()
+  private lazy var searchController = UISearchController(searchResultsController: ListScreenViewController())
 
     @IBOutlet private weak var logoImageView: UIImageView!
 
@@ -26,6 +26,7 @@ class MainScreenViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.searchBar.backgroundColor = .white
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.automaticallyShowsSearchResultsController = false
     }
 
     private func setupUI() {
@@ -48,6 +49,7 @@ extension MainScreenViewController: UISearchBarDelegate {
             presenter.getProductBarCode(searchText: inputText)
         } else {
             presenter.getProductSearch(searchText: inputText, page: 0)
+            searchController.showsSearchResultsController = true
         }
     }
 }
