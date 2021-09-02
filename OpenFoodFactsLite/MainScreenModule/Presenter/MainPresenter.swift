@@ -16,6 +16,7 @@ protocol MainViewPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, networkBuilder: NetworkBuilderProtocol, router: RouterProtocol)
     func getProductBarCode(searchText: String)
     func getProductSearch(searchText: String, page: Int)
+    var productsModel: [Product] {get set}
 }
 
 class MainPresenter: MainViewPresenterProtocol {
@@ -23,6 +24,7 @@ class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol!
     var networkBuilder: NetworkBuilderProtocol!
     var router: RouterProtocol?
+    var productsModel: [Product] = []
 
     required init(view: MainViewProtocol, networkBuilder: NetworkBuilderProtocol, router: RouterProtocol) {
         self.view = view
@@ -44,10 +46,14 @@ class MainPresenter: MainViewPresenterProtocol {
 
     func getProductSearch(searchText: String, page: Int) {
         let service = networkBuilder.createSearchService()
-        service.getSearchProduct(searchText: searchText, page: page) { result in
+        service.getSearchProduct(searchText: searchText, page: page) { [weak self] result in
+            guard let self = self else {return}
             switch result {
             case .success(let data):
-                print(data)
+                data.products?.forEach({ product in
+                    self.productsModel.append(product)
+                })
+                print(self.productsModel)
             case .failure(let error):
                 print(error)
             }

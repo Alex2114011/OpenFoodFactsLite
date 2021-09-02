@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ListViewProtocol: AnyObject {
-
 }
 
 protocol ListViewPresenterProtocol: AnyObject {

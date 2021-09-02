@@ -23,6 +23,8 @@ class MainScreenViewController: UIViewController {
 
     private func setupSearchController() {
         searchController.searchBar.placeholder = "Поиск по названию или штрихкоду"
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.searchBar.backgroundColor = .white
         searchController.obscuresBackgroundDuringPresentation = false
@@ -50,6 +52,18 @@ extension MainScreenViewController: UISearchBarDelegate {
         } else {
             presenter.getProductSearch(searchText: inputText, page: 0)
             searchController.showsSearchResultsController = true
+        }
+    }
+}
+
+extension MainScreenViewController: UISearchControllerDelegate {
+
+}
+
+extension MainScreenViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let resultController = searchController.searchResultsController as? ListScreenViewController {
+           // pass data to listcontroller
         }
     }
 }
