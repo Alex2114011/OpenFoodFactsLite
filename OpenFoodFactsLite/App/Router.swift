@@ -29,7 +29,7 @@ class Router: RouterProtocol {
 
     func initialViewController() {
         if let navigationController = navigationController {
-            guard let mainScreenViewController = moduleBuilder?.createMainScreenModule(router: self) else { return }
+            guard let mainScreenViewController = moduleBuilder?.createListScreenModule(router: self) else { return }
             navigationController.viewControllers = [mainScreenViewController]
         }
     }

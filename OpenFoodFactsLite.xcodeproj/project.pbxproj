@@ -134,6 +134,8 @@
 		FA9D9F7326DC022B006597BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */,
+				FA9D9F4C26DA617A006597BA /* BarCodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,9 +168,9 @@
 		FADDCABB26D94E1100B9B4A8 /* OpenFoodFactsLite */ = {
 			isa = PBXGroup;
 			children = (
+				FADDCAD526D9538D00B9B4A8 /* App */,
 				FA3378EC26DD3734003BE023 /* Extensions */,
 				FA9D9F7026DC0203006597BA /* ListScreenModule */,
-				FADDCAD526D9538D00B9B4A8 /* App */,
 				FADDCAD626D953BD00B9B4A8 /* MainScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
 				FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */,
@@ -202,8 +204,6 @@
 		FADDCAD726D953CA00B9B4A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */,
-				FA9D9F4C26DA617A006597BA /* BarCodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
