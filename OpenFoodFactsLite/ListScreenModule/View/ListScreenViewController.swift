@@ -103,7 +103,7 @@ extension ListScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         if presenter.productsModel.count >= 24 {
-            if indexPath.row - 2 >= presenter.productsModel.count - 3 {
+            if indexPath.row + 4 >= presenter.productsModel.count - 5 {
                 presenter.getNextProductSearch()
             }
         }

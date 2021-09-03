@@ -20,16 +20,17 @@ protocol ListViewPresenterProtocol: AnyObject {
     var productsModel: [Product] {get set}
     var productOFBarCode: [BarCode] {get set}
     var searchText: String {get set}
-    var page: Int {get set}
 }
 
 final class ListPresenter: ListViewPresenterProtocol {
-    var searchText: String = ""
+
     weak var view: ListViewProtocol?
     var router: RouterProtocol?
     var networkBuilder: NetworkBuilderProtocol?
     var productsModel: [Product] = []
     var productOFBarCode: [BarCode] = []
+    private var pageCount = 1
+    var searchText: String = ""
 
     required init(view: ListViewProtocol, router: RouterProtocol, networkBuilder: NetworkBuilderProtocol) {
         self.view = view
@@ -56,7 +57,8 @@ final class ListPresenter: ListViewPresenterProtocol {
     func getProductSearch() {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
-        service.getSearchProduct(searchText: searchText, page: 1) { [weak self] result in
+        self.pageCount = 1
+        service.getSearchProduct(searchText: searchText, page: pageCount) { [weak self] result in
             guard let self = self else {return}
             switch result {
             case .success(let data):
@@ -65,7 +67,6 @@ final class ListPresenter: ListViewPresenterProtocol {
                     self.productsModel.append(product)
                     self.view?.success()
                 })
-//                print(self.productsModel)
             case .failure(let error):
                 print(error)
             }
@@ -75,16 +76,15 @@ final class ListPresenter: ListViewPresenterProtocol {
     func getNextProductSearch() {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
-        service.getSearchProduct(searchText: searchText, page: ) { [weak self] result in
+        service.getSearchProduct(searchText: searchText, page: pageCount + 1 ) { [weak self] result in
             guard let self = self else {return}
             switch result {
             case .success(let data):
                 data.products?.forEach({ product in
                     self.productsModel.append(product)
-                        self.view?.success()
+                    self.view?.success()
                 })
-                print(self.productsModel.count)
-                print(data.page)
+                self.pageCount += 1
             case .failure(let error):
                 print(error)
             }
