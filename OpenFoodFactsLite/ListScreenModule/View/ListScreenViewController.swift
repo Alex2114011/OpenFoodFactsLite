@@ -65,11 +65,12 @@ extension ListScreenViewController: UISearchBarDelegate {
 
         guard let inputText = searchBar.text else { return }
         listTableView.isHidden = false
+        presenter.searchText = inputText
 
-        if Int(inputText) != nil {
-            presenter.getProductBarCode(searchText: inputText)
+        if Int(presenter.searchText) != nil {
+            presenter.getProductBarCode()
         } else {
-            presenter.getProductSearch(searchText: inputText, page: 0)
+            presenter.getProductSearch()
             searchController.showsSearchResultsController = true
         }
     }
@@ -97,6 +98,15 @@ extension ListScreenViewController: UITableViewDataSource {
         cell.manufacturerLabel.text = item.brands
         cell.capacityLabel.text = item.quantity
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        if presenter.productsModel.count >= 24 {
+            if indexPath.row - 2 >= presenter.productsModel.count - 3 {
+                presenter.getNextProductSearch()
+            }
+        }
     }
 }
 

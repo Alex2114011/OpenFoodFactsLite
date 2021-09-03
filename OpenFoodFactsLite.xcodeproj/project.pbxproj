@@ -27,9 +27,6 @@
 		FADDCAD226D9535500B9B4A8 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAD126D9535500B9B4A8 /* Builder.swift */; };
 		FADDCAD426D9537900B9B4A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAD326D9537900B9B4A8 /* Router.swift */; };
 		FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */; };
-		FADDCADD26D9542700B9B4A8 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCADC26D9542700B9B4A8 /* MainPresenter.swift */; };
-		FADDCAE026D9544500B9B4A8 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCADE26D9544500B9B4A8 /* MainScreenViewController.swift */; };
-		FADDCAE126D9544500B9B4A8 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADDCADF26D9544500B9B4A8 /* MainScreenViewController.xib */; };
 		FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAE326D9553300B9B4A8 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,9 +53,6 @@
 		FADDCAD126D9535500B9B4A8 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		FADDCAD326D9537900B9B4A8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
-		FADDCADC26D9542700B9B4A8 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		FADDCADE26D9544500B9B4A8 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
-		FADDCADF26D9544500B9B4A8 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 		FADDCAE326D9553300B9B4A8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,7 +165,6 @@
 				FADDCAD526D9538D00B9B4A8 /* App */,
 				FA3378EC26DD3734003BE023 /* Extensions */,
 				FA9D9F7026DC0203006597BA /* ListScreenModule */,
-				FADDCAD626D953BD00B9B4A8 /* MainScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
 				FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */,
 				FADDCACA26D94E1200B9B4A8 /* Info.plist */,
@@ -189,40 +182,6 @@
 				FADDCAC726D94E1200B9B4A8 /* LaunchScreen.storyboard */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		FADDCAD626D953BD00B9B4A8 /* MainScreenModule */ = {
-			isa = PBXGroup;
-			children = (
-				FADDCAD726D953CA00B9B4A8 /* Model */,
-				FADDCAD826D953DD00B9B4A8 /* View */,
-				FADDCAD926D953E200B9B4A8 /* Presenter */,
-			);
-			path = MainScreenModule;
-			sourceTree = "<group>";
-		};
-		FADDCAD726D953CA00B9B4A8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		FADDCAD826D953DD00B9B4A8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FADDCADE26D9544500B9B4A8 /* MainScreenViewController.swift */,
-				FADDCADF26D9544500B9B4A8 /* MainScreenViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		FADDCAD926D953E200B9B4A8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FADDCADC26D9542700B9B4A8 /* MainPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		FADDCAE226D9550600B9B4A8 /* ServiceLayer */ = {
@@ -295,7 +254,6 @@
 				FA9D9F7926DC0DEC006597BA /* ListScreenViewController.xib in Resources */,
 				FADDCAC926D94E1200B9B4A8 /* LaunchScreen.storyboard in Resources */,
 				FADDCAC626D94E1200B9B4A8 /* Assets.xcassets in Resources */,
-				FADDCAE126D9544500B9B4A8 /* MainScreenViewController.xib in Resources */,
 				FA9D9F7E26DC0E18006597BA /* ListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +304,12 @@
 			files = (
 				FA9D9F7826DC0DEC006597BA /* ListScreenViewController.swift in Sources */,
 				FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */,
-				FADDCADD26D9542700B9B4A8 /* MainPresenter.swift in Sources */,
 				FA9D9F7526DC0DB2006597BA /* ListPresenter.swift in Sources */,
 				FA3378EB26DD372A003BE023 /* UITableViewExtension.swift in Sources */,
 				FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */,
 				FA9D9F7D26DC0E18006597BA /* ListTableViewCell.swift in Sources */,
 				FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */,
 				FA9D9F4326DA226F006597BA /* URLPrepare.swift in Sources */,
-				FADDCAE026D9544500B9B4A8 /* MainScreenViewController.swift in Sources */,
 				FADDCAD426D9537900B9B4A8 /* Router.swift in Sources */,
 				FA9D9F4726DA22D6006597BA /* HTTPMethod.swift in Sources */,
 				FA9D9F4526DA2295006597BA /* NetworkBuilder.swift in Sources */,
