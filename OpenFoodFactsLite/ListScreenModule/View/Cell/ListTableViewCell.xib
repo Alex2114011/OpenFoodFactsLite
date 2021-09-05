@@ -93,7 +93,7 @@
                                                             <constraint firstAttribute="width" constant="60" id="wYA-UM-Uhk"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="ecoscore" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-SV-Xth">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="ecoscore-unknown" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-SV-Xth">
                                                         <rect key="frame" x="170" y="0.0" width="80" height="82"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="80" id="Kqc-Y5-07L"/>
@@ -130,7 +130,7 @@
     </objects>
     <resources>
         <image name="NutriScore" width="389" height="210"/>
-        <image name="ecoscore" width="45.5" height="21.5"/>
+        <image name="ecoscore-unknown" width="91" height="43"/>
         <image name="nova-group" width="131" height="220"/>
         <image name="temp" width="136" height="400"/>
         <systemColor name="systemBackgroundColor">

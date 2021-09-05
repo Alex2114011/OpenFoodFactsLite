@@ -20,6 +20,7 @@
 		FA9D9F7926DC0DEC006597BA /* ListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9D9F7726DC0DEC006597BA /* ListScreenViewController.xib */; };
 		FA9D9F7D26DC0E18006597BA /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F7B26DC0E18006597BA /* ListTableViewCell.swift */; };
 		FA9D9F7E26DC0E18006597BA /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9D9F7C26DC0E18006597BA /* ListTableViewCell.xib */; };
+		FABDFC2226E28C1100EC49C9 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDFC2126E28C1100EC49C9 /* ImageCache.swift */; };
 		FADDCABD26D94E1100B9B4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCABC26D94E1100B9B4A8 /* AppDelegate.swift */; };
 		FADDCABF26D94E1100B9B4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCABE26D94E1100B9B4A8 /* SceneDelegate.swift */; };
 		FADDCAC626D94E1200B9B4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		FA9D9F7726DC0DEC006597BA /* ListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListScreenViewController.xib; sourceTree = "<group>"; };
 		FA9D9F7B26DC0E18006597BA /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		FA9D9F7C26DC0E18006597BA /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		FABDFC2126E28C1100EC49C9 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FADDCAB926D94E1100B9B4A8 /* OpenFoodFactsLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFoodFactsLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDCABC26D94E1100B9B4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADDCABE26D94E1100B9B4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				FA9D9F3C26DA219F006597BA /* URLProvider.swift */,
 				FA9D9F4626DA22D6006597BA /* HTTPMethod.swift */,
 				FA9D9F4426DA2295006597BA /* NetworkBuilder.swift */,
+				FABDFC2126E28C1100EC49C9 /* ImageCache.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */,
 				FA9D9F4326DA226F006597BA /* URLPrepare.swift in Sources */,
 				FADDCAD426D9537900B9B4A8 /* Router.swift in Sources */,
+				FABDFC2226E28C1100EC49C9 /* ImageCache.swift in Sources */,
 				FA9D9F4726DA22D6006597BA /* HTTPMethod.swift in Sources */,
 				FA9D9F4526DA2295006597BA /* NetworkBuilder.swift in Sources */,
 				FADDCABD26D94E1100B9B4A8 /* AppDelegate.swift in Sources */,

@@ -94,9 +94,7 @@ extension ListScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(ListTableViewCell.self, indexPath)
         let item = presenter.productsModel[indexPath.row]
-        cell.nameProductLabel.text = item.productName
-        cell.manufacturerLabel.text = item.brands
-        cell.capacityLabel.text = item.quantity
+        cell.updateUI(model: item)
         return cell
     }
 
