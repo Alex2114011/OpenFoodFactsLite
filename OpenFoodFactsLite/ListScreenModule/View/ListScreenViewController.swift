@@ -9,7 +9,6 @@ import UIKit
 
 class ListScreenViewController: UIViewController {
 
-    @IBOutlet private weak var logoImageView: UIImageView!
     private lazy var searchController = UISearchController()
     private var listTableView = UITableView()
 
@@ -20,6 +19,7 @@ class ListScreenViewController: UIViewController {
         setupUI()
         setupSearchController()
         setupTable()
+        setState(stateIs: .initial(true))
     }
 
     private func setupSearchController() {
@@ -29,7 +29,6 @@ class ListScreenViewController: UIViewController {
         searchController.searchBar.placeholder = "Поиск по названию или штрихкоду"
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.automaticallyShowsSearchResultsController = false
     }
 
     private func setupUI() {
@@ -41,7 +40,6 @@ class ListScreenViewController: UIViewController {
         navigationItem.searchController = searchController
 
         view.backgroundColor = .white
-        logoImageView.image = UIImage(named: "openfoodfacts-logo-en")
     }
 
     private func setupTable() {
@@ -49,7 +47,6 @@ class ListScreenViewController: UIViewController {
         listTableView.dataSource = self
         listTableView.delegate = self
         // SetupUI Table
-        listTableView.isHidden = true
         view.addSubview(listTableView)
         listTableView.translatesAutoresizingMaskIntoConstraints = false
         listTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -71,14 +68,24 @@ extension ListScreenViewController: UISearchBarDelegate {
             presenter.getProductBarCode()
         } else {
             presenter.getProductSearch()
-            searchController.showsSearchResultsController = true
+            setState(stateIs: .initial(false))
+
         }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        listTableView.isHidden = true
         presenter.productsModel = []
         listTableView.reloadData()
+        setState(stateIs: .initial(true))
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text != nil {
+            searchBar.text = ""
+            self.setState(stateIs: .initial(false))
+            self.setState(stateIs: .initial(true))
+            self.setState(stateIs: .empty(false))
+            self.setState(stateIs: .loading(false))
+        }
     }
 }
 
@@ -115,6 +122,29 @@ extension ListScreenViewController: UITableViewDelegate {
 }
 
 extension ListScreenViewController: ListViewProtocol {
+    func setState(stateIs: ListPresenter.State) {
+        switch stateIs {
+        case .initial(let setOn):
+            if setOn {
+                self.addInitialView()
+            } else {
+                self.removeInitialView()
+            }
+        case .loading(let setOn):
+            if setOn {
+                self.activityStartAnimating(activityColor: .gray, backgroundColor: .white)
+            } else {
+                self.activityStopAnimating()
+            }
+        case .empty(let setOn):
+            if setOn {
+                self.addEmptyView()
+            } else {
+                self.removeEmptyView()
+            }
+        }
+    }
+
     func success() {
         listTableView.reloadData()
     }

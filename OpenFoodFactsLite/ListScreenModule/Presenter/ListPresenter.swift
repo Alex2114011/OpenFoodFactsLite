@@ -10,6 +10,7 @@ import Foundation
 protocol ListViewProtocol: AnyObject {
     func success()
     func fail(error: Error)
+    func setState(stateIs: ListPresenter.State)
 }
 
 protocol ListViewPresenterProtocol: AnyObject {
@@ -38,6 +39,12 @@ final class ListPresenter: ListViewPresenterProtocol {
         self.networkBuilder = networkBuilder
     }
 
+    enum State {
+        case initial(Bool)
+        case loading(Bool)
+        case empty(Bool)
+    }
+
     func getProductBarCode() {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
@@ -58,15 +65,21 @@ final class ListPresenter: ListViewPresenterProtocol {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
         self.pageCount = 1
+        self.view?.setState(stateIs: .loading(true))
         service.getSearchProduct(searchText: searchText, page: pageCount) { [weak self] result in
             guard let self = self else {return}
             switch result {
             case .success(let data):
+                if data.count != 0 {
                 self.productsModel = []
                 data.products?.forEach({ product in
                     self.productsModel.append(product)
                     self.view?.success()
+                    self.view?.setState(stateIs: .loading(false))
                 })
+                } else {
+                    self.view?.setState(stateIs: .empty(true))
+                }
             case .failure(let error):
                 print(error)
             }

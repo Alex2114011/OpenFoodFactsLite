@@ -23,7 +23,7 @@ class ImageCache {
             return nil
         }
 
-        let dataTask = URLSession.shared.dataTask(with: wrapURL) { [weak self] (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: wrapURL) { [weak self] (data, _, _) in
             guard let self = self, let unwrapData = data, let image = UIImage(data: unwrapData) else { return }
             self.cachedImages.setObject(image, forKey: url)
             DispatchQueue.main.async {
