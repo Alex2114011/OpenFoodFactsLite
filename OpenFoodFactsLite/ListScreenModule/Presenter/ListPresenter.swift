@@ -18,6 +18,7 @@ protocol ListViewPresenterProtocol: AnyObject {
     func getProductBarCode()
     func getProductSearch()
     func getNextProductSearch()
+    func tapToCell()
     var productsModel: [Product] {get set}
     var productOFBarCode: [BarCode] {get set}
     var searchText: String {get set}
@@ -102,5 +103,9 @@ final class ListPresenter: ListViewPresenterProtocol {
                 print(error)
             }
         }
+    }
+
+    func tapToCell() {
+        router?.showDetail()
     }
 }

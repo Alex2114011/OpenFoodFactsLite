@@ -101,6 +101,7 @@ extension ListScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(ListTableViewCell.self, indexPath)
         let item = presenter.productsModel[indexPath.row]
+        cell.selectionStyle = .none
         cell.updateUI(model: item)
         return cell
     }
@@ -118,6 +119,9 @@ extension ListScreenViewController: UITableViewDataSource {
 extension ListScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.tapToCell()
     }
 }
 

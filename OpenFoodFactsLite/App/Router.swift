@@ -15,6 +15,7 @@ protocol RouterMainProtocol {
 protocol RouterProtocol: RouterMainProtocol {
     func initialViewController()
     func popToRoot()
+    func showDetail()
 }
 
 class Router: RouterProtocol {
@@ -38,6 +39,13 @@ class Router: RouterProtocol {
             guard let listViewController = moduleBuilder?.createListScreenModule(router: self) else {
                 return }
             navigationController.pushViewController(listViewController, animated: true)
+        }
+    }
+    func showDetail() {
+        if let navigationController = navigationController {
+            guard let detailScreenViewController = moduleBuilder?.createDetailScreenModule(router: self) else {
+                return }
+            navigationController.pushViewController(detailScreenViewController, animated: true)
         }
     }
 

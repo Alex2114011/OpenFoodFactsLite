@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA0E135726E7E9B600B431D8 /* ListScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E135626E7E9B600B431D8 /* ListScreenExtension.swift */; };
+		FA0E135D26E8CD9B00B431D8 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E135C26E8CD9B00B431D8 /* DetailPresenter.swift */; };
+		FA0E135F26E8CDB500B431D8 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E135E26E8CDB500B431D8 /* DetailScreenViewController.swift */; };
 		FA3378EB26DD372A003BE023 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3378EA26DD372A003BE023 /* UITableViewExtension.swift */; };
 		FA9D9F3B26DA2193006597BA /* HostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3A26DA2193006597BA /* HostProvider.swift */; };
 		FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3C26DA219F006597BA /* URLProvider.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		FA0E135626E7E9B600B431D8 /* ListScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenExtension.swift; sourceTree = "<group>"; };
+		FA0E135C26E8CD9B00B431D8 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		FA0E135E26E8CDB500B431D8 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		FA3378EA26DD372A003BE023 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		FA9D9F3A26DA2193006597BA /* HostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProvider.swift; sourceTree = "<group>"; };
 		FA9D9F3C26DA219F006597BA /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
@@ -69,6 +73,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0E135826E8CD5600B431D8 /* DetailScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E135B26E8CD8A00B431D8 /* Module */,
+				FA0E135A26E8CD8300B431D8 /* View */,
+				FA0E135926E8CD7900B431D8 /* Presenter */,
+			);
+			path = DetailScreenModule;
+			sourceTree = "<group>";
+		};
+		FA0E135926E8CD7900B431D8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E135C26E8CD9B00B431D8 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FA0E135A26E8CD8300B431D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E135E26E8CDB500B431D8 /* DetailScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA0E135B26E8CD8A00B431D8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		FA3378EC26DD3734003BE023 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +204,7 @@
 			children = (
 				FADDCAD526D9538D00B9B4A8 /* App */,
 				FA3378EC26DD3734003BE023 /* Extensions */,
+				FA0E135826E8CD5600B431D8 /* DetailScreenModule */,
 				FA9D9F7026DC0203006597BA /* ListScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
 				FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */,
@@ -304,9 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0E135F26E8CDB500B431D8 /* DetailScreenViewController.swift in Sources */,
 				FA9D9F7826DC0DEC006597BA /* ListScreenViewController.swift in Sources */,
 				FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */,
 				FA9D9F7526DC0DB2006597BA /* ListPresenter.swift in Sources */,
+				FA0E135D26E8CD9B00B431D8 /* DetailPresenter.swift in Sources */,
 				FA3378EB26DD372A003BE023 /* UITableViewExtension.swift in Sources */,
 				FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */,
 				FA9D9F7D26DC0E18006597BA /* ListTableViewCell.swift in Sources */,
