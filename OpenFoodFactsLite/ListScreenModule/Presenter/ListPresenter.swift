@@ -15,8 +15,8 @@ protocol ListViewProtocol: AnyObject {
 
 protocol ListViewPresenterProtocol: AnyObject {
     init(view: ListViewProtocol, router: RouterProtocol, networkBuilder: NetworkBuilderProtocol)
-    func getProductBarCode()
-    func getProductSearch()
+    func getProductBarCode(searchText: String)
+    func getProductSearch(searchText: String)
     func getNextProductSearch()
     func tapToCell()
     var productsModel: [Product] {get set}
@@ -46,7 +46,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         case empty(Bool)
     }
 
-    func getProductBarCode() {
+    func getProductBarCode(searchText: String) {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
         service.getBarCodeProduct(searchText: searchText) {[weak self] result in
@@ -55,6 +55,7 @@ final class ListPresenter: ListViewPresenterProtocol {
             case .success(let data):
                 self.productOFBarCode = []
                 self.productOFBarCode = [data]
+                print(data.statusVerbose as Any)
                 self.view?.success()
             case .failure(let error):
                 print(error)
@@ -62,7 +63,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         }
     }
 
-    func getProductSearch() {
+    func getProductSearch(searchText: String) {
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
         self.pageCount = 1

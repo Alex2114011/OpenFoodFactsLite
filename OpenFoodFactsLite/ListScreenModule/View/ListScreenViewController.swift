@@ -24,7 +24,6 @@ class ListScreenViewController: UIViewController {
 
     private func setupSearchController() {
         searchController.delegate = self
-        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Поиск по названию или штрихкоду"
         searchController.hidesNavigationBarDuringPresentation = false
@@ -57,17 +56,17 @@ class ListScreenViewController: UIViewController {
         listTableView.register(cell: ListTableViewCell.self)
     }
 }
+
 extension ListScreenViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         guard let inputText = searchBar.text else { return }
-        listTableView.isHidden = false
         presenter.searchText = inputText
 
         if Int(presenter.searchText) != nil {
-            presenter.getProductBarCode()
+            presenter.getProductBarCode(searchText: inputText)
         } else {
-            presenter.getProductSearch()
+            presenter.getProductSearch(searchText: inputText)
             setState(stateIs: .initial(false))
 
         }
@@ -120,8 +119,10 @@ extension ListScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.tapToCell()
+        guard let barCode = presenter.productsModel[indexPath.row].code else {return}
+        presenter.getProductBarCode(searchText: barCode)
     }
 }
 
@@ -156,10 +157,4 @@ extension ListScreenViewController: ListViewProtocol {
     func fail(error: Error) {
     }
 
-}
-
-extension ListScreenViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-
-    }
 }
