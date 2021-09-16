@@ -18,9 +18,9 @@ protocol ListViewPresenterProtocol: AnyObject {
     func getProductBarCode(searchText: String)
     func getProductSearch(searchText: String)
     func getNextProductSearch()
-    func tapToCell()
+    func goToDetail(productOFBarCode: BarCode)
     var productsModel: [Product] {get set}
-    var productOFBarCode: [BarCode] {get set}
+    var productOFBarCode: BarCode? {get set}
     var searchText: String {get set}
 }
 
@@ -30,7 +30,7 @@ final class ListPresenter: ListViewPresenterProtocol {
     var router: RouterProtocol?
     var networkBuilder: NetworkBuilderProtocol?
     var productsModel: [Product] = []
-    var productOFBarCode: [BarCode] = []
+    var productOFBarCode: BarCode?
     private var pageCount = 1
     var searchText: String = ""
 
@@ -53,10 +53,11 @@ final class ListPresenter: ListViewPresenterProtocol {
             guard let self = self else {return}
             switch result {
             case .success(let data):
-                self.productOFBarCode = []
-                self.productOFBarCode = [data]
+                self.productOFBarCode = nil
+                self.productOFBarCode = data
                 print(data.statusVerbose as Any)
                 self.view?.success()
+                self.goToDetail(productOFBarCode: self.productOFBarCode!)
             case .failure(let error):
                 print(error)
             }
@@ -106,7 +107,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         }
     }
 
-    func tapToCell() {
-        router?.showDetail()
+    func goToDetail(productOFBarCode: BarCode) {
+        router?.showDetail(productOFBarCode: productOFBarCode)
     }
 }

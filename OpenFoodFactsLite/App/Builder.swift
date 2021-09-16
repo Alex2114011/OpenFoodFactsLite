@@ -9,7 +9,7 @@ import UIKit
 
 protocol BuilderProtocol {
     func createListScreenModule(router: RouterProtocol) -> UIViewController
-    func createDetailScreenModule(router: RouterProtocol) -> UIViewController
+    func createDetailScreenModule(router: RouterProtocol, productOFBarCode: BarCode) -> UIViewController
 }
 
 class ModuleBuilder: BuilderProtocol {
@@ -22,16 +22,11 @@ class ModuleBuilder: BuilderProtocol {
         return view
     }
 
-    func createDetailScreenModule(router: RouterProtocol) -> UIViewController {
-        let searhModel: [Product] = []
-        let barCodeModel: [BarCode] = []
-        let networkBuilder = NetworkBuilder()
+    func createDetailScreenModule(router: RouterProtocol, productOFBarCode: BarCode) -> UIViewController {
         let view = DetailScreenViewController()
         let presenter = DetailPresenter(view: view,
                                         router: router,
-                                        networkBuilder: networkBuilder,
-                                        searhModel: searhModel,
-                                        barCodeModel: barCodeModel)
+                                        productOFBarCode: productOFBarCode)
         view.presenter = presenter
         return view
     }
