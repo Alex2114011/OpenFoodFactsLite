@@ -43,7 +43,9 @@ class Router: RouterProtocol {
     }
     func showDetail(productOFBarCode: BarCode) {
         if let navigationController = navigationController {
-            guard let detailScreenViewController = moduleBuilder?.createDetailScreenModule(router: self, productOFBarCode: productOFBarCode) else {
+            guard let detailScreenViewController =
+                    moduleBuilder?.createDetailScreenModule(router: self,
+                                                            productOFBarCode: productOFBarCode) else {
                 return }
             navigationController.pushViewController(detailScreenViewController, animated: true)
         }

@@ -49,7 +49,7 @@ final class SearchService: SearchServiceProtocol {
     func getBarCodeProduct(searchText: String,
                            completion: @escaping ((Result<BarCode, Error>) -> Void)) {
 
-        let parameters = ["fields": "brands,code,ecoscore_alpha,ecoscore_grade,environment_impact_level_tags,image_front_url,image_front_small_url,image_small_url,image_url,nova_group,nutrition_grades,product_name,quantity,states"]
+        let parameters = ["fields": "brands,code,ecoscore_alpha,ecoscore_grade,environment_impact_level_tags,image_front_url,image_front_small_url,image_small_url,image_url,nova_group,nutrition_grades,product_name,quantity,states,attribute_groups_en,nutriments"]
 
         let urlRequest = urlPrepare.prepareBarCodeRequest(url: urlProvider.barCodePath, barCode: searchText, parameters: parameters, httpMethod: .get, headerParameters: headerParameter, data: nil)
         baseNetworkService.sendRequest(urlRequest: urlRequest, completion: completion)
