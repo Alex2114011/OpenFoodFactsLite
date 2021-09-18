@@ -6,7 +6,7 @@
 //
 
 import UIKit
-extension ListScreenViewController {
+extension UIViewController {
 
     func activityStartAnimating(activityColor: UIColor, backgroundColor: UIColor) {
         let backgroundView = UIView()
@@ -27,7 +27,7 @@ extension ListScreenViewController {
     }
 
     func activityStopAnimating() {
-        for view in super.view.subviews where view.tag == 1 {
+        for view in self.view.subviews where view.tag == 1 {
             view.removeFromSuperview()
         }
         view.isUserInteractionEnabled = true
@@ -51,7 +51,7 @@ extension ListScreenViewController {
     }
 
     func removeInitialView() {
-        for view in super.view.subviews where view.tag == 2 {
+        for view in self.view.subviews where view.tag == 2 {
             view.removeFromSuperview()
         }
     }
@@ -76,7 +76,7 @@ extension ListScreenViewController {
     }
 
     func removeEmptyView() {
-        for view in super.view.subviews where view.tag == 3 {
+        for view in self.view.subviews where view.tag == 3 {
             view.removeFromSuperview()
         }
     }

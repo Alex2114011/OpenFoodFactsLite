@@ -15,7 +15,7 @@ protocol RouterMainProtocol {
 protocol RouterProtocol: RouterMainProtocol {
     func initialViewController()
     func popToRoot()
-    func showDetail(productOFBarCode: BarCode)
+    func showDetail(barCode: String)
 }
 
 class Router: RouterProtocol {
@@ -41,11 +41,10 @@ class Router: RouterProtocol {
             navigationController.pushViewController(listViewController, animated: true)
         }
     }
-    func showDetail(productOFBarCode: BarCode) {
+    func showDetail(barCode: String) {
         if let navigationController = navigationController {
             guard let detailScreenViewController =
-                    moduleBuilder?.createDetailScreenModule(router: self,
-                                                            productOFBarCode: productOFBarCode) else {
+                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode) else {
                 return }
             navigationController.pushViewController(detailScreenViewController, animated: true)
         }

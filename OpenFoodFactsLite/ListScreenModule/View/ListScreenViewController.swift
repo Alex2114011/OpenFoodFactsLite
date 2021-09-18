@@ -54,6 +54,7 @@ class ListScreenViewController: UIViewController {
         listTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         // Register cell
         listTableView.register(cell: ListTableViewCell.self)
+        listTableView.alwaysBounceVertical = false
     }
 }
 
@@ -64,7 +65,7 @@ extension ListScreenViewController: UISearchBarDelegate {
         presenter.searchText = inputText
 
         if Int(presenter.searchText) != nil {
-            presenter.getProductBarCode(searchText: inputText)
+            presenter.goToDetail(barCode: inputText)
         } else {
             presenter.getProductSearch(searchText: inputText)
             setState(stateIs: .initial(false))
@@ -108,7 +109,7 @@ extension ListScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         if presenter.productsModel.count >= 24 {
-            if indexPath.row - 2 >= presenter.productsModel.count - 3 {
+            if indexPath.row - 1 >= presenter.productsModel.count - 2 {
                 presenter.getNextProductSearch()
             }
         }
@@ -122,7 +123,7 @@ extension ListScreenViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let barCode = presenter.productsModel[indexPath.row].code else {return}
-        presenter.getProductBarCode(searchText: barCode)
+        presenter.goToDetail(barCode: barCode)
     }
 }
 

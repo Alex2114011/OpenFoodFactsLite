@@ -15,10 +15,9 @@ protocol ListViewProtocol: AnyObject {
 
 protocol ListViewPresenterProtocol: AnyObject {
     init(view: ListViewProtocol, router: RouterProtocol, networkBuilder: NetworkBuilderProtocol)
-    func getProductBarCode(searchText: String)
     func getProductSearch(searchText: String)
     func getNextProductSearch()
-    func goToDetail(productOFBarCode: BarCode)
+    func goToDetail(barCode: String)
     var productsModel: [Product] {get set}
     var productOFBarCode: BarCode? {get set}
     var searchText: String {get set}
@@ -46,23 +45,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         case empty(Bool)
     }
 
-    func getProductBarCode(searchText: String) {
-        guard let networkBuilder = networkBuilder else { return }
-        let service = networkBuilder.createSearchService()
-        service.getBarCodeProduct(searchText: searchText) {[weak self] result in
-            guard let self = self else {return}
-            switch result {
-            case .success(let data):
-                self.productOFBarCode = nil
-                self.productOFBarCode = data
-                print(data.statusVerbose as Any)
-                self.view?.success()
-                self.goToDetail(productOFBarCode: self.productOFBarCode!)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+    
 
     func getProductSearch(searchText: String) {
         guard let networkBuilder = networkBuilder else { return }
@@ -74,12 +57,12 @@ final class ListPresenter: ListViewPresenterProtocol {
             switch result {
             case .success(let data):
                 if data.count != 0 {
-                self.productsModel = []
-                data.products?.forEach({ product in
-                    self.productsModel.append(product)
-                    self.view?.success()
-                    self.view?.setState(stateIs: .loading(false))
-                })
+                    self.productsModel = []
+                    data.products?.forEach({ product in
+                        self.productsModel.append(product)
+                        self.view?.success()
+                        self.view?.setState(stateIs: .loading(false))
+                    })
                 } else {
                     self.view?.setState(stateIs: .empty(true))
                 }
@@ -101,13 +84,14 @@ final class ListPresenter: ListViewPresenterProtocol {
                     self.view?.success()
                 })
                 self.pageCount += 1
+                print("PAGECOUNT\(self.pageCount)")
             case .failure(let error):
                 print(error)
             }
         }
     }
 
-    func goToDetail(productOFBarCode: BarCode) {
-        router?.showDetail(productOFBarCode: productOFBarCode)
-    }
+func goToDetail(barCode: String) {
+    router?.showDetail(barCode: barCode)
+}
 }
