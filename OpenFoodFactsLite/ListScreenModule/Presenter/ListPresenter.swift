@@ -19,7 +19,6 @@ protocol ListViewPresenterProtocol: AnyObject {
     func getNextProductSearch()
     func goToDetail(barCode: String)
     var productsModel: [Product] {get set}
-    var productOFBarCode: BarCode? {get set}
     var searchText: String {get set}
 }
 
@@ -29,9 +28,9 @@ final class ListPresenter: ListViewPresenterProtocol {
     var router: RouterProtocol?
     var networkBuilder: NetworkBuilderProtocol?
     var productsModel: [Product] = []
-    var productOFBarCode: BarCode?
-    private var pageCount = 1
     var searchText: String = ""
+    private var maxPage = 0
+    private var currentPage = 1
 
     required init(view: ListViewProtocol, router: RouterProtocol, networkBuilder: NetworkBuilderProtocol) {
         self.view = view
@@ -45,18 +44,17 @@ final class ListPresenter: ListViewPresenterProtocol {
         case empty(Bool)
     }
 
-    
-
     func getProductSearch(searchText: String) {
+        currentPage = 1
         guard let networkBuilder = networkBuilder else { return }
         let service = networkBuilder.createSearchService()
-        self.pageCount = 1
         self.view?.setState(stateIs: .loading(true))
-        service.getSearchProduct(searchText: searchText, page: pageCount) { [weak self] result in
+        service.getSearchProduct(searchText: searchText, page: currentPage) { [weak self] result in
             guard let self = self else {return}
             switch result {
             case .success(let data):
                 if data.count != 0 {
+                    self.maxPage = data.pageCount!
                     self.productsModel = []
                     data.products?.forEach({ product in
                         self.productsModel.append(product)
@@ -73,20 +71,22 @@ final class ListPresenter: ListViewPresenterProtocol {
     }
 
     func getNextProductSearch() {
-        guard let networkBuilder = networkBuilder else { return }
-        let service = networkBuilder.createSearchService()
-        service.getSearchProduct(searchText: searchText, page: pageCount + 1 ) { [weak self] result in
-            guard let self = self else {return}
-            switch result {
-            case .success(let data):
-                data.products?.forEach({ product in
-                    self.productsModel.append(product)
-                    self.view?.success()
-                })
-                self.pageCount += 1
-                print("PAGECOUNT\(self.pageCount)")
-            case .failure(let error):
-                print(error)
+        if currentPage < maxPage {
+            guard let networkBuilder = networkBuilder else { return }
+            let service = networkBuilder.createSearchService()
+            service.getSearchProduct(searchText: searchText, page: currentPage + 1) { [weak self] result in
+                guard let self = self else {return}
+                switch result {
+                case .success(let data):
+                    data.products?.forEach({ product in
+                        self.productsModel.append(product)
+                        self.view?.success()
+                    })
+                    self.currentPage = data.page!
+                    print(self.currentPage)
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }

@@ -15,8 +15,9 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var nutriScoreImageView: UIImageView!
     @IBOutlet weak var novaImageView: UIImageView!
     @IBOutlet weak var ecoImageView: UIImageView!
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
-    var groupImageTask: URLSessionDataTask?
+    var productImageTask: URLSessionDataTask?
 
     func updateUI(model: Product) {
         nameProductLabel.text = model.productName
@@ -24,11 +25,10 @@ class ListTableViewCell: UITableViewCell {
         capacityLabel.text = model.quantity
         ecoImageView.image = UIImage(named: "ecoscore-unknown")
 
-        if let url = NSURL(string: model.imageURL ?? "") {
-            groupImageTask = ImageCache.shared.load(url: url, callback: { [weak self] (image) in
-                self?.productImageView.image = image
-            })
-            groupImageTask?.resume()
+        if let imageURLString = model.imageFrontSmallURL {
+            imageCache(urlString: imageURLString)
+        } else {
+            imageCache(urlString: "https://upload.wikimedia.org/wikipedia/commons/b/b1/No-image.png")
         }
 
         if let nutritionGrades = model.nutritionGrades {
@@ -55,5 +55,20 @@ class ListTableViewCell: UITableViewCell {
         } else {
             novaImageView.image = UIImage(named: "nova-group-unknown")
         }
+    }
+
+    func imageCache(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            productImageTask = ImageCache.shared.load(url: url, callback: { [weak self] (image) in
+                guard let self = self else {return}
+                self.productImageView.image = image
+            })
+            productImageTask?.resume()
+        }
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageTask?.cancel()
+        productImageTask = nil
     }
 }

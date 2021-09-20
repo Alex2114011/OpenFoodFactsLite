@@ -16,7 +16,7 @@ protocol SearchServiceProtocol {
 
 final class SearchService: SearchServiceProtocol {
 
-    private let headerParameter = ["User-Agent": "LearnProject - IOS - Version 1.0 "]
+    private let headerParameter = ["LearnProject - IOS - Version 1.0": "User-Agent"]
 
     private let baseNetworkService: NetworkServiceProtocol
     private let urlProvider: URLProvider

@@ -17,7 +17,7 @@ class SummaryTableViewCell: UITableViewCell {
     @IBOutlet weak var novaImageView: UIImageView!
     @IBOutlet weak var ecoImageView: UIImageView!
 
-    var groupImageTask: URLSessionDataTask?
+    var productImageTask: URLSessionDataTask?
 
     func updateUI(model: BarCode) {
         self.selectionStyle = .none
@@ -26,11 +26,10 @@ class SummaryTableViewCell: UITableViewCell {
         capacityLabel.text = model.product?.quantity
         ecoImageView.image = UIImage(named: "ecoscore-unknown")
 
-        if let url = NSURL(string: model.product?.imageURL ?? "") {
-            groupImageTask = ImageCache.shared.load(url: url, callback: { [weak self] (image) in
-                self?.productImageView.image = image
-            })
-            groupImageTask?.resume()
+        if let imageURLString = model.product?.imageFrontURL {
+            imageCache(urlString: imageURLString)
+        } else {
+            imageCache(urlString: "https://upload.wikimedia.org/wikipedia/commons/b/b1/No-image.png")
         }
 
         if let nutritionGrades = model.product?.nutritionGrades {
@@ -57,5 +56,20 @@ class SummaryTableViewCell: UITableViewCell {
         } else {
             novaImageView.image = UIImage(named: "nova-group-unknown")
         }
+    }
+
+    func imageCache(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            productImageTask = ImageCache.shared.load(url: url, callback: { [weak self] (image) in
+                guard let self = self else {return}
+                self.productImageView.image = image
+            })
+            productImageTask?.resume()
+        }
+    }
+
+    override func prepareForReuse() {
+        productImageTask?.cancel()
+        productImageTask = nil
     }
 }

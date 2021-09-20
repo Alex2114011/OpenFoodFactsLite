@@ -15,7 +15,7 @@ protocol URLPrepareProtocol {
                               headerParameters: [String: String]?,
                               data: Data?) -> URLRequest?
 
-    func prepareBarCodeRequest(url: URL,
+    func prepareBarCodeRequest(url: URL, // swiftlint:disable:this function_parameter_count
                                barCode: String,
                                parameters: [String: String]?,
                                httpMethod: HTTPMethod,
@@ -67,7 +67,7 @@ final class URLPrepare: URLPrepareProtocol {
         return request
     }
 
-    func prepareBarCodeRequest(url: URL,
+    func prepareBarCodeRequest(url: URL, // swiftlint:disable:this function_parameter_count
                                barCode: String,
                                parameters: [String: String]?,
                                httpMethod: HTTPMethod,
