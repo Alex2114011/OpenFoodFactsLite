@@ -17,6 +17,8 @@
 		FA3F249826F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3F249626F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.xib */; };
 		FA3F24BD26F604200000294F /* NutritionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F24BB26F604200000294F /* NutritionalTableViewCell.swift */; };
 		FA3F24BE26F604200000294F /* NutritionalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3F24BC26F604200000294F /* NutritionalTableViewCell.xib */; };
+		FA582A1826F89F1000F6E527 /* BarCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA582A1626F89F1000F6E527 /* BarCodeTableViewCell.swift */; };
+		FA582A1926F89F1000F6E527 /* BarCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA582A1726F89F1000F6E527 /* BarCodeTableViewCell.xib */; };
 		FA9D9F3B26DA2193006597BA /* HostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3A26DA2193006597BA /* HostProvider.swift */; };
 		FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3C26DA219F006597BA /* URLProvider.swift */; };
 		FA9D9F3F26DA21D8006597BA /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3E26DA21D8006597BA /* SearchService.swift */; };
@@ -50,6 +52,8 @@
 		FA3F249626F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnaliticsIngridientsTableViewCell.xib; sourceTree = "<group>"; };
 		FA3F24BB26F604200000294F /* NutritionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalTableViewCell.swift; sourceTree = "<group>"; };
 		FA3F24BC26F604200000294F /* NutritionalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionalTableViewCell.xib; sourceTree = "<group>"; };
+		FA582A1626F89F1000F6E527 /* BarCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeTableViewCell.swift; sourceTree = "<group>"; };
+		FA582A1726F89F1000F6E527 /* BarCodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarCodeTableViewCell.xib; sourceTree = "<group>"; };
 		FA9D9F3A26DA2193006597BA /* HostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProvider.swift; sourceTree = "<group>"; };
 		FA9D9F3C26DA219F006597BA /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		FA9D9F3E26DA21D8006597BA /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				FA3F249626F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.xib */,
 				FA3F24BB26F604200000294F /* NutritionalTableViewCell.swift */,
 				FA3F24BC26F604200000294F /* NutritionalTableViewCell.xib */,
+				FA582A1626F89F1000F6E527 /* BarCodeTableViewCell.swift */,
+				FA582A1726F89F1000F6E527 /* BarCodeTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				FADDCAC926D94E1200B9B4A8 /* LaunchScreen.storyboard in Resources */,
 				FA3F24BE26F604200000294F /* NutritionalTableViewCell.xib in Resources */,
 				FA3F249826F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.xib in Resources */,
+				FA582A1926F89F1000F6E527 /* BarCodeTableViewCell.xib in Resources */,
 				FADDCAC626D94E1200B9B4A8 /* Assets.xcassets in Resources */,
 				FA3F249426F3D3A80000294F /* SummaryTableViewCell.xib in Resources */,
 				FA9D9F7E26DC0E18006597BA /* ListTableViewCell.xib in Resources */,
@@ -384,6 +391,7 @@
 				FA9D9F4326DA226F006597BA /* URLPrepare.swift in Sources */,
 				FA3F249726F3DFAC0000294F /* AnaliticsIngridientsTableViewCell.swift in Sources */,
 				FADDCAD426D9537900B9B4A8 /* Router.swift in Sources */,
+				FA582A1826F89F1000F6E527 /* BarCodeTableViewCell.swift in Sources */,
 				FABDFC2226E28C1100EC49C9 /* ImageCache.swift in Sources */,
 				FA9D9F4726DA22D6006597BA /* HTTPMethod.swift in Sources */,
 				FA9D9F4526DA2295006597BA /* NetworkBuilder.swift in Sources */,

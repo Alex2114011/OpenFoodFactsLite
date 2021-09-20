@@ -82,8 +82,7 @@ final class ListPresenter: ListViewPresenterProtocol {
                         self.productsModel.append(product)
                         self.view?.success()
                     })
-                    self.currentPage = data.page!
-                    print(self.currentPage)
+                    self.currentPage = data.page ?? 0
                 case .failure(let error):
                     print(error)
                 }
@@ -91,7 +90,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         }
     }
 
-func goToDetail(barCode: String) {
-    router?.showDetail(barCode: barCode)
-}
+    func goToDetail(barCode: String) {
+        router?.showDetail(barCode: barCode)
+    }
 }

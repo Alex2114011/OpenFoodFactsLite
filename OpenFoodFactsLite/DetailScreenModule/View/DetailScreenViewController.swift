@@ -33,12 +33,13 @@ class DetailScreenViewController: UIViewController {
         detailTableView.register(cell: SummaryTableViewCell.self)
         detailTableView.register(cell: AnaliticsIngridientsTableViewCell.self)
         detailTableView.register(cell: NutritionalTableViewCell.self)
+        detailTableView.register(cell: BarCodeTableViewCell.self)
     }
 }
 
 extension DetailScreenViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -64,6 +65,12 @@ extension DetailScreenViewController: UITableViewDataSource {
             cell.updateUI(model: item)
             return cell
         }
+        if indexPath.section == 3 {
+            let cell = tableView.getCell(BarCodeTableViewCell.self, indexPath)
+            let item = productOFBarCode
+            cell.updateUI(model: item)
+            return cell
+        }
     return UITableViewCell()
     }
 }
@@ -71,10 +78,10 @@ extension DetailScreenViewController: UITableViewDataSource {
 extension DetailScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0...1:
-            return 100
-        case 2:
-            return 240
+        case 0: return 115
+        case 1: return 90
+        case 2: return 240
+        case 3: return 50
         default:
             return 100
         }

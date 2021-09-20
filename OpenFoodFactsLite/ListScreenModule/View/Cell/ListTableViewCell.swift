@@ -15,7 +15,6 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var nutriScoreImageView: UIImageView!
     @IBOutlet weak var novaImageView: UIImageView!
     @IBOutlet weak var ecoImageView: UIImageView!
-    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
     var productImageTask: URLSessionDataTask?
 
