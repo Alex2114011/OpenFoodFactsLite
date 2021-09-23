@@ -6,6 +6,9 @@
 //
 
 import Foundation
+protocol DetailPresenterDelegate: AnyObject {
+    func detailViewControllerIs(presented: Bool)
+}
 
 protocol DetailViewProtocol: AnyObject {
     func success()
@@ -15,13 +18,18 @@ protocol DetailViewProtocol: AnyObject {
 
 protocol DetailViewPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol,
-         router: RouterProtocol, networkBuilder: NetworkBuilderProtocol, barCode: String)
+         router: RouterProtocol,
+         networkBuilder: NetworkBuilderProtocol,
+         barCode: String,
+         delegate: DetailPresenterDelegate?)
     func getProductBarCode(searchText: String)
+    func presented(_ presented: Bool)
 }
 
 class DetailPresenter: DetailViewPresenterProtocol {
 
     weak var view: DetailViewProtocol?
+    weak var delegate: DetailPresenterDelegate?
     let router: RouterProtocol?
     let networkBuilder: NetworkBuilderProtocol?
     let barCode: String
@@ -29,11 +37,15 @@ class DetailPresenter: DetailViewPresenterProtocol {
     var productOFBarCode: BarCode?
 
     required init(view: DetailViewProtocol,
-                  router: RouterProtocol, networkBuilder: NetworkBuilderProtocol, barCode: String) {
+                  router: RouterProtocol,
+                  networkBuilder: NetworkBuilderProtocol,
+                  barCode: String,
+                  delegate: DetailPresenterDelegate?) {
         self.view = view
         self.router = router
         self.networkBuilder = networkBuilder
         self.barCode = barCode
+        self.delegate = delegate
     }
 
     enum State {
@@ -63,5 +75,9 @@ class DetailPresenter: DetailViewPresenterProtocol {
                 print(error)
             }
         }
+    }
+
+    func presented(_ presented: Bool) {
+        delegate?.detailViewControllerIs(presented: presented)
     }
 }

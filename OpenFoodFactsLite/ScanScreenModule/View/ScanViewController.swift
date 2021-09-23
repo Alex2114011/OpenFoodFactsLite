@@ -7,8 +7,6 @@
 
 import UIKit
 import AVFoundation
-// swiftlint:disable all
-
 
 class ScanViewController: UIViewController {
 
@@ -29,7 +27,6 @@ class ScanViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupAndStartCaptureSession()
@@ -51,20 +48,19 @@ class ScanViewController: UIViewController {
     }
 
     func setupAndStartCaptureSession() {
-        DispatchQueue.global(qos: .userInitiated).async { // нужен так как startRunning блокирует очередь в которой запускается
+        // нужен так как startRunning блокирует очередь в которой запускается
+        DispatchQueue.global(qos: .userInitiated).async { // swiftlint:this line_length
             // инициализируем сессию
             self.captureSession = AVCaptureSession()
             // начало конфигурации
             self.captureSession.beginConfiguration()
 
-            // тут чего то будем конфигурировать
-
             // делаем пресет на самое лучшее качество фото и если ок то устанавливаем его
             if self.captureSession.canSetSessionPreset(.photo) {
                 self.captureSession.sessionPreset = .photo
             }
-
-            self.captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true // включаем широкое цветовое пространство
+            // включаем широкое цветовое пространство
+            self.captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true // swiftlint:this line_length
 
             // настраиваем входы
             self.setupInputs()
@@ -83,7 +79,6 @@ class ScanViewController: UIViewController {
         }
     }
 
-
     func setupInputs() {
         // получаем заднюю камеру
         if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
@@ -92,7 +87,8 @@ class ScanViewController: UIViewController {
             fatalError("No back camera")
         }
 
-        guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else  { return } // нужно теперь нашу камеру превратить в объект ввода
+    guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
+        return } // нужно теперь нашу камеру превратить в объект ввода
 
         backInput = bInput
 
@@ -103,7 +99,6 @@ class ScanViewController: UIViewController {
     }
 
     func setupOutputs() {
-
         if !captureSession.canAddOutput(self.metadataOutput) {
             fatalError("не могу добавить выход ")
         }
@@ -138,20 +133,21 @@ class ScanViewController: UIViewController {
 }
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-
-
+    func metadataOutput(_ output: AVCaptureMetadataOutput,
+                        didOutput metadataObjects: [AVMetadataObject],
+                        from connection: AVCaptureConnection) {
 
         if let metadataObjects = metadataObjects.first {
             guard let readableObject = metadataObjects as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            presenter?.goToDetailModal(barCode: stringValue)
-            self.captureSession.stopRunning()
+            guard let presenter = presenter else { return }
+            if !presenter.isDetailPresented {
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                presenter.goToDetailModal(barCode: stringValue)
+            }
         }
     }
 }
 
 extension ScanViewController: ScanViewProtocol {
-
 }

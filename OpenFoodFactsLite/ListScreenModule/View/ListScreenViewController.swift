@@ -65,7 +65,7 @@ extension ListScreenViewController: UISearchBarDelegate {
         presenter.searchText = inputText
 
         if Int(presenter.searchText) != nil {
-            presenter.goToDetail(barCode: inputText)
+            presenter.goToDetail(barCode: inputText, delegate: nil)
         } else {
             presenter.getProductSearch(searchText: inputText)
             setState(stateIs: .initial(false))
@@ -120,7 +120,7 @@ extension ListScreenViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let barCode = presenter.productsModel[indexPath.row].code else {return}
-        presenter.goToDetail(barCode: barCode)
+        presenter.goToDetail(barCode: barCode, delegate: nil)
     }
 }
 

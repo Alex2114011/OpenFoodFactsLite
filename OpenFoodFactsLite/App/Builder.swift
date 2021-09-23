@@ -9,7 +9,9 @@ import UIKit
 
 protocol BuilderProtocol {
     func createListScreenModule(router: RouterProtocol) -> UIViewController
-    func createDetailScreenModule(router: RouterProtocol, barCode: String) -> UIViewController
+    func createDetailScreenModule(router: RouterProtocol,
+                                  barCode: String,
+                                  delegate: DetailPresenterDelegate?) -> UIViewController
     func createScanScreenModule(router: RouterProtocol) -> UIViewController
 }
 
@@ -25,11 +27,16 @@ class ModuleBuilder: BuilderProtocol {
         return view
     }
 
-    func createDetailScreenModule(router: RouterProtocol, barCode: String) -> UIViewController {
+    func createDetailScreenModule(router: RouterProtocol,
+                                  barCode: String,
+                                  delegate: DetailPresenterDelegate?) -> UIViewController {
         let view = DetailScreenViewController()
         let networkBuilder = NetworkBuilder()
         let presenter = DetailPresenter(view: view,
-                                        router: router, networkBuilder: networkBuilder, barCode: barCode)
+                                        router: router,
+                                        networkBuilder: networkBuilder,
+                                        barCode: barCode,
+                                        delegate: delegate)
         view.presenter = presenter
         return view
     }

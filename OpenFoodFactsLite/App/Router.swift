@@ -16,8 +16,8 @@ protocol RouterProtocol: RouterMainProtocol {
     func initialViewController()
     func scanViewController()
     func popToRoot()
-    func showDetail(barCode: String)
-    func showDetailModal(barCode: String)
+    func showDetail(barCode: String, delegate: DetailPresenterDelegate?)
+    func showDetailModal(barCode: String, delegate: DetailPresenterDelegate?)
 }
 
 class Router: RouterProtocol {
@@ -51,18 +51,18 @@ class Router: RouterProtocol {
             navigationController.pushViewController(listViewController, animated: true)
         }
     }
-    func showDetail(barCode: String) {
+    func showDetail(barCode: String, delegate: DetailPresenterDelegate?) {
         if let navigationController = navigationController {
             guard let detailScreenViewController =
-                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode) else {
+                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode, delegate: delegate) else {
                 return }
             navigationController.pushViewController(detailScreenViewController, animated: true)
         }
     }
-    func showDetailModal(barCode: String) {
+    func showDetailModal(barCode: String, delegate: DetailPresenterDelegate?) {
         if let navigationController = navigationController {
             guard let detailScreenViewController =
-                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode) else {
+                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode, delegate: delegate) else {
                 return }
             navigationController.present(detailScreenViewController, animated: true, completion: nil)
         }

@@ -17,7 +17,7 @@ protocol ListViewPresenterProtocol: AnyObject {
     init(view: ListViewProtocol, router: RouterProtocol, networkBuilder: NetworkBuilderProtocol)
     func getProductSearch(searchText: String)
     func getNextProductSearch()
-    func goToDetail(barCode: String)
+    func goToDetail(barCode: String, delegate: DetailPresenterDelegate?)
     var productsModel: [Product] {get set}
     var searchText: String {get set}
 }
@@ -90,7 +90,7 @@ final class ListPresenter: ListViewPresenterProtocol {
         }
     }
 
-    func goToDetail(barCode: String) {
-        router?.showDetail(barCode: barCode)
+    func goToDetail(barCode: String, delegate: DetailPresenterDelegate?) {
+        router?.showDetail(barCode: barCode, delegate: nil)
     }
 }

@@ -15,8 +15,14 @@ class DetailScreenViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupTable()
-        guard let presenter = presenter else { fatalError(#function) }
+        guard let presenter = presenter else { return }
         presenter.getProductBarCode(searchText: presenter.barCode )
+        presenter.presented(true)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter?.presented(false)
     }
     private func setupTable() {
         // Delegate
