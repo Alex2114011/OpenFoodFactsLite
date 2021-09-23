@@ -32,8 +32,7 @@ final class BaseNetworkService: NetworkServiceProtocol {
                 guard let data = data else { return }
 
                 do {
-                    let rawJson = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(rawJson)
+                    _ = try JSONSerialization.jsonObject(with: data, options: [])
                     let json = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(json))
                 } catch let error {

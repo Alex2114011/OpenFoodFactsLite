@@ -14,8 +14,10 @@ protocol RouterMainProtocol {
 
 protocol RouterProtocol: RouterMainProtocol {
     func initialViewController()
+    func scanViewController()
     func popToRoot()
     func showDetail(barCode: String)
+    func showDetailModal(barCode: String)
 }
 
 class Router: RouterProtocol {
@@ -34,6 +36,14 @@ class Router: RouterProtocol {
             navigationController.viewControllers = [mainScreenViewController]
         }
     }
+
+    func scanViewController() {
+        if let navigationController = navigationController {
+            guard let scanViewController = moduleBuilder?.createScanScreenModule(router: self) else { return }
+            navigationController.viewControllers = [scanViewController]
+        }
+    }
+
     func showList() {
         if let navigationController = navigationController {
             guard let listViewController = moduleBuilder?.createListScreenModule(router: self) else {
@@ -47,6 +57,14 @@ class Router: RouterProtocol {
                     moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode) else {
                 return }
             navigationController.pushViewController(detailScreenViewController, animated: true)
+        }
+    }
+    func showDetailModal(barCode: String) {
+        if let navigationController = navigationController {
+            guard let detailScreenViewController =
+                    moduleBuilder?.createDetailScreenModule(router: self, barCode: barCode) else {
+                return }
+            navigationController.present(detailScreenViewController, animated: true, completion: nil)
         }
     }
 

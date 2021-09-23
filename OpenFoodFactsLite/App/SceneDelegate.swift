@@ -15,13 +15,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+
         let window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController()
         let builder = ModuleBuilder()
-        let router = Router(navigationController: navigationController, moduleBuilder: builder)
-        router.initialViewController()
+
+        let searchNavigationController = UINavigationController()
+        let searchRouter = Router(navigationController: searchNavigationController, moduleBuilder: builder)
+        searchRouter.initialViewController()
+
+        let scanNavigationController = UINavigationController()
+        let scanRouter = Router(navigationController: scanNavigationController, moduleBuilder: builder)
+        scanRouter.scanViewController()
+
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([navigationController], animated: true)
+        tabBarController.setViewControllers([searchNavigationController, scanNavigationController], animated: true)
         window.rootViewController = tabBarController
         self.window = window
         self.window?.makeKeyAndVisible()

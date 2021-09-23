@@ -10,6 +10,7 @@ import UIKit
 protocol BuilderProtocol {
     func createListScreenModule(router: RouterProtocol) -> UIViewController
     func createDetailScreenModule(router: RouterProtocol, barCode: String) -> UIViewController
+    func createScanScreenModule(router: RouterProtocol) -> UIViewController
 }
 
 class ModuleBuilder: BuilderProtocol {
@@ -32,4 +33,13 @@ class ModuleBuilder: BuilderProtocol {
         view.presenter = presenter
         return view
     }
+
+    func createScanScreenModule(router: RouterProtocol) -> UIViewController {
+        let view = ScanViewController()
+        let presenter = ScanViewPresenter(view: view,
+                                          router: router)
+        view.presenter = presenter
+        return view
+    }
+
 }
