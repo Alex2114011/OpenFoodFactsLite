@@ -22,6 +22,7 @@ protocol DetailViewPresenterProtocol: AnyObject {
          networkBuilder: NetworkBuilderProtocol,
          barCode: String,
          delegate: DetailPresenterDelegate?)
+
     func getProductBarCode(searchText: String)
     func presented(_ presented: Bool)
 }

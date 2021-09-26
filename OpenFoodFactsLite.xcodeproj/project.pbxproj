@@ -43,6 +43,7 @@
 		FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAE326D9553300B9B4A8 /* NetworkService.swift */; };
 		FAF3566726FDB5020047FBA7 /* ScanScreenUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3566626FDB5020047FBA7 /* ScanScreenUIExtension.swift */; };
 		FAF3568A27008EF90047FBA7 /* ScanScreenAVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3568927008EF90047FBA7 /* ScanScreenAVExtension.swift */; };
+		FAF3568C2700A0750047FBA7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3568B2700A0750047FBA7 /* DoubleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		FADDCAE326D9553300B9B4A8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FAF3566626FDB5020047FBA7 /* ScanScreenUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanScreenUIExtension.swift; sourceTree = "<group>"; };
 		FAF3568927008EF90047FBA7 /* ScanScreenAVExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanScreenAVExtension.swift; sourceTree = "<group>"; };
+		FAF3568B2700A0750047FBA7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				FA3378EA26DD372A003BE023 /* UITableViewExtension.swift */,
 				FA0E135626E7E9B600B431D8 /* UIViewController+Extension.swift */,
+				FAF3568B2700A0750047FBA7 /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,9 +273,9 @@
 			children = (
 				FADDCAD526D9538D00B9B4A8 /* App */,
 				FA3378EC26DD3734003BE023 /* Extensions */,
-				FA0E135826E8CD5600B431D8 /* DetailScreenModule */,
 				FA9D9F7026DC0203006597BA /* ListScreenModule */,
 				FA3A925C26F8D60700F3DDE5 /* ScanScreenModule */,
+				FA0E135826E8CD5600B431D8 /* DetailScreenModule */,
 				FADDCAE226D9550600B9B4A8 /* ServiceLayer */,
 				FADDCAC526D94E1200B9B4A8 /* Assets.xcassets */,
 				FADDCACA26D94E1200B9B4A8 /* Info.plist */,
@@ -422,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF3568C2700A0750047FBA7 /* DoubleExtension.swift in Sources */,
 				FA0E135F26E8CDB500B431D8 /* DetailScreenViewController.swift in Sources */,
 				FA9D9F7826DC0DEC006597BA /* ListScreenViewController.swift in Sources */,
 				FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */,

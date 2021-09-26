@@ -8,7 +8,6 @@
 import Foundation
 
 protocol HostProviderProtocol {
-//    var host: HostProvider.Host { get set }
     func getHostURL() -> URL
 }
 

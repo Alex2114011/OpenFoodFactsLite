@@ -41,6 +41,7 @@ class NutritionalTableViewCell: UITableViewCell {
     }
 
     private func setFat(_ attribute: Attribute, value: Double, unit: String) {
+        let value = value.rounded(toPlaces: 2)
         switch attribute.title {
         case "Fat in high quantity":
             self.fatsImageView.image = UIImage(named: "nutrient-level-fat-high")
@@ -60,6 +61,7 @@ class NutritionalTableViewCell: UITableViewCell {
     }
 
     private func setSaturatedFat(_ attribute: Attribute, value: Double, unit: String) {
+        let value = value.rounded(toPlaces: 2)
         switch attribute.title {
         case "Saturated fat in high quantity":
             self.saturatedFatsImageView.image = UIImage(named: "nutrient-level-saturated-fat-high")
@@ -80,6 +82,7 @@ class NutritionalTableViewCell: UITableViewCell {
     }
 
     private func setSugar(_ attribute: Attribute, value: Double, unit: String) {
+        let value = value.rounded(toPlaces: 2)
         switch attribute.title {
         case "Sugars in high quantity":
             self.sugarImageView.image = UIImage(named: "nutrient-level-sugars-high")
@@ -99,6 +102,7 @@ class NutritionalTableViewCell: UITableViewCell {
     }
 
     private func setSalt(_ attribute: Attribute, value: Double, unit: String) {
+        let value = value.rounded(toPlaces: 2)
         switch attribute.title {
         case "Salt in high quantity":
             self.saltImageView.image = UIImage(named: "nutrient-level-salt-high")

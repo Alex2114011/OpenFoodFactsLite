@@ -51,6 +51,7 @@ class Router: RouterProtocol {
             navigationController.pushViewController(listViewController, animated: true)
         }
     }
+
     func showDetail(barCode: String, delegate: DetailPresenterDelegate?) {
         if let navigationController = navigationController {
             guard let detailScreenViewController =

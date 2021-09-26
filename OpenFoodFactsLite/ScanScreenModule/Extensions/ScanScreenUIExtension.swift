@@ -32,6 +32,7 @@ extension ScanScreenViewController {
     func setupFlashButton() {
         flashButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         flashButton.backgroundColor = .gray
+        flashButton.alpha = 0.7
         flashButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         flashButton.setImage(UIImage(named: "flash_off"), for: .normal)
         flashButton.heightAnchor.constraint(equalTo: flashButton.widthAnchor, multiplier: 1/1).isActive = true
@@ -69,5 +70,4 @@ extension ScanScreenViewController {
 """)
        }
    }
-
 }
