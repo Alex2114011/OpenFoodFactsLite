@@ -1,52 +1,12 @@
 //
-//  ScanViewController.swift
+//  ScanScreenAVExtension.swift
 //  OpenFoodFactsLite
 //
-//  Created by Alex on 22.09.2021.
+//  Created by Alex on 26.09.2021.
 //
 
-import UIKit
 import AVFoundation
-
-class ScanViewController: UIViewController {
-
-    var presenter: ScanViewPresenterProtocol?
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    var metadataOutput = AVCaptureMetadataOutput()
-    var backCamera: AVCaptureDevice!
-    var backInput: AVCaptureInput!
-
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        self.tabBarItem = UITabBarItem(title: "Сканер", image: UIImage(named: "barcode"), tag: 1)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        setupAndStartCaptureSession()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if captureSession?.isRunning == false {
-            captureSession.startRunning()
-        }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if captureSession?.isRunning == true {
-            captureSession.stopRunning()
-        }
-    }
-
+extension ScanScreenViewController {
     func setupAndStartCaptureSession() {
         // нужен так как startRunning блокирует очередь в которой запускается
         DispatchQueue.global(qos: .userInitiated).async { // swiftlint:this line_length
@@ -87,8 +47,8 @@ class ScanViewController: UIViewController {
             fatalError("No back camera")
         }
 
-    guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
-        return } // нужно теперь нашу камеру превратить в объект ввода
+        guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
+            return } // нужно теперь нашу камеру превратить в объект ввода
 
         backInput = bInput
 
@@ -126,28 +86,7 @@ class ScanViewController: UIViewController {
                                              y: 0,
                                              width: self.view.bounds.width,
                                              height: self.view.bounds.height - heightTabBar)
-            self.view.layer.addSublayer(self.previewLayer)
-
+            self.view.layer.insertSublayer(self.previewLayer, below: self.rootStackView.layer)
         }
     }
-}
-
-extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
-    func metadataOutput(_ output: AVCaptureMetadataOutput,
-                        didOutput metadataObjects: [AVMetadataObject],
-                        from connection: AVCaptureConnection) {
-
-        if let metadataObjects = metadataObjects.first {
-            guard let readableObject = metadataObjects as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            guard let presenter = presenter else { return }
-            if !presenter.isDetailPresented {
-                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                presenter.goToDetailModal(barCode: stringValue)
-            }
-        }
-    }
-}
-
-extension ScanViewController: ScanViewProtocol {
 }

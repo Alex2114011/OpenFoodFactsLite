@@ -20,7 +20,7 @@
 		FA3F24BE26F604200000294F /* NutritionalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3F24BC26F604200000294F /* NutritionalTableViewCell.xib */; };
 		FA582A1826F89F1000F6E527 /* BarCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA582A1626F89F1000F6E527 /* BarCodeTableViewCell.swift */; };
 		FA582A1926F89F1000F6E527 /* BarCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA582A1726F89F1000F6E527 /* BarCodeTableViewCell.xib */; };
-		FA61E83B26FB45AD00AA3BC6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61E83A26FB45AD00AA3BC6 /* ScanViewController.swift */; };
+		FA61E83B26FB45AD00AA3BC6 /* ScanScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61E83A26FB45AD00AA3BC6 /* ScanScreenViewController.swift */; };
 		FA9D9F3B26DA2193006597BA /* HostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3A26DA2193006597BA /* HostProvider.swift */; };
 		FA9D9F3D26DA219F006597BA /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3C26DA219F006597BA /* URLProvider.swift */; };
 		FA9D9F3F26DA21D8006597BA /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9F3E26DA21D8006597BA /* SearchService.swift */; };
@@ -41,6 +41,8 @@
 		FADDCAD426D9537900B9B4A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAD326D9537900B9B4A8 /* Router.swift */; };
 		FADDCADB26D953FA00B9B4A8 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */; };
 		FADDCAE426D9553300B9B4A8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDCAE326D9553300B9B4A8 /* NetworkService.swift */; };
+		FAF3566726FDB5020047FBA7 /* ScanScreenUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3566626FDB5020047FBA7 /* ScanScreenUIExtension.swift */; };
+		FAF3568A27008EF90047FBA7 /* ScanScreenAVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3568927008EF90047FBA7 /* ScanScreenAVExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +59,7 @@
 		FA3F24BC26F604200000294F /* NutritionalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionalTableViewCell.xib; sourceTree = "<group>"; };
 		FA582A1626F89F1000F6E527 /* BarCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeTableViewCell.swift; sourceTree = "<group>"; };
 		FA582A1726F89F1000F6E527 /* BarCodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarCodeTableViewCell.xib; sourceTree = "<group>"; };
-		FA61E83A26FB45AD00AA3BC6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		FA61E83A26FB45AD00AA3BC6 /* ScanScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanScreenViewController.swift; sourceTree = "<group>"; };
 		FA9D9F3A26DA2193006597BA /* HostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProvider.swift; sourceTree = "<group>"; };
 		FA9D9F3C26DA219F006597BA /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		FA9D9F3E26DA21D8006597BA /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		FADDCAD326D9537900B9B4A8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FADDCADA26D953FA00B9B4A8 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		FADDCAE326D9553300B9B4A8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FAF3566626FDB5020047FBA7 /* ScanScreenUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanScreenUIExtension.swift; sourceTree = "<group>"; };
+		FAF3568927008EF90047FBA7 /* ScanScreenAVExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanScreenAVExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 		FA3A925C26F8D60700F3DDE5 /* ScanScreenModule */ = {
 			isa = PBXGroup;
 			children = (
+				FAF3568827008E810047FBA7 /* Extensions */,
 				FA3A925D26F8D61F00F3DDE5 /* Model */,
 				FA3A925E26F8D62900F3DDE5 /* View */,
 				FA3A925F26F8D63100F3DDE5 /* Presenter */,
@@ -148,7 +153,7 @@
 		FA3A925E26F8D62900F3DDE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA61E83A26FB45AD00AA3BC6 /* ScanViewController.swift */,
+				FA61E83A26FB45AD00AA3BC6 /* ScanScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +300,15 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		FAF3568827008E810047FBA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAF3566626FDB5020047FBA7 /* ScanScreenUIExtension.swift */,
+				FAF3568927008EF90047FBA7 /* ScanScreenAVExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,7 +448,9 @@
 				FA0E135726E7E9B600B431D8 /* UIViewController+Extension.swift in Sources */,
 				FA9D9F4D26DA617A006597BA /* BarCodeModel.swift in Sources */,
 				FADDCAD226D9535500B9B4A8 /* Builder.swift in Sources */,
-				FA61E83B26FB45AD00AA3BC6 /* ScanViewController.swift in Sources */,
+				FA61E83B26FB45AD00AA3BC6 /* ScanScreenViewController.swift in Sources */,
+				FAF3566726FDB5020047FBA7 /* ScanScreenUIExtension.swift in Sources */,
+				FAF3568A27008EF90047FBA7 /* ScanScreenAVExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

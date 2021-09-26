@@ -42,7 +42,7 @@ class ModuleBuilder: BuilderProtocol {
     }
 
     func createScanScreenModule(router: RouterProtocol) -> UIViewController {
-        let view = ScanViewController()
+        let view = ScanScreenViewController()
         let presenter = ScanViewPresenter(view: view,
                                           router: router)
         view.presenter = presenter
