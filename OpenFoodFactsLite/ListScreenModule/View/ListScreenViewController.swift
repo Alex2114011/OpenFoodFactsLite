@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ListScreenViewController: UIViewController {
+final class ListScreenViewController: UIViewController {
 
-    private lazy var searchController = UISearchController()
+    private var searchController = UISearchController()
     private var listTableView = UITableView()
 
     var presenter: ListViewPresenterProtocol!

@@ -85,7 +85,7 @@ extension DetailScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 115
-        case 1: return 90
+        case 1: return 210
         case 2: return 240
         case 3: return 50
         default:

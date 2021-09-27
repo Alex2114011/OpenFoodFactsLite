@@ -8,7 +8,7 @@
 import AVFoundation
 extension ScanScreenViewController {
     func setupAndStartCaptureSession() {
-        // нужен так как startRunning блокирует очередь в которой запускается
+        // DispatchQueue нужен так как startRunning блокирует очередь в которой запускается
         DispatchQueue.global(qos: .userInitiated).async { // swiftlint:this line_length
             // инициализируем сессию
             self.captureSession = AVCaptureSession()

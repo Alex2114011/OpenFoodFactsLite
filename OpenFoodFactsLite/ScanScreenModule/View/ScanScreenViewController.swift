@@ -8,9 +8,10 @@
 import UIKit
 import AVFoundation
 
-class ScanScreenViewController: UIViewController {
+final class ScanScreenViewController: UIViewController {
 
     var presenter: ScanViewPresenterProtocol?
+
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var metadataOutput = AVCaptureMetadataOutput()
@@ -18,6 +19,7 @@ class ScanScreenViewController: UIViewController {
     var torch: AVCaptureDevice!
     var torchInput: AVCaptureDeviceInput!
     var backInput: AVCaptureInput!
+
     var rootStackView = UIStackView()
     var embedStackView = UIStackView()
     var alertLabel = UILabel()

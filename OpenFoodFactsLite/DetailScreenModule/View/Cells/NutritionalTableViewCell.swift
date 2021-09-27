@@ -25,16 +25,16 @@ class NutritionalTableViewCell: UITableViewCell {
             attributeGroupsEn.attributes?.forEach({ attribute in
                 guard let value = model.product?.nutriments else {return}
                 setFat(attribute,
-                       value: value.fatValue ?? 0.0,
+                       value: value.fat100G ?? 0.0,
                        unit: value.fatUnit ?? "")
                 setSaturatedFat(attribute,
-                                value: value.saturatedFatValue ?? 0.0,
+                                value: value.saturatedFat100G ?? 0.0,
                                 unit: value.saturatedFatUnit ?? "")
                 setSugar(attribute,
-                         value: value.sugarsValue ?? 0.0,
+                         value: value.sugars100G ?? 0.0,
                          unit: value.sugarsUnit ?? "")
                 setSalt(attribute,
-                        value: value.saltValue ?? 0.0,
+                        value: value.salt100G ?? 0.0,
                         unit: value.saltUnit ?? "")
             })
         }
