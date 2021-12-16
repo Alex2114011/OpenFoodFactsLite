@@ -3,7 +3,7 @@
 UIKit\
 AVFoundation\
 URLSession\
-NSCache\
+NSCache
 
 Приложение позволяет проводить поиск продукта по названию и по штрих-коду.
 ![IMG_1381](https://user-images.githubusercontent.com/61419902/137880662-eafbdb2b-4904-49dc-8ec5-a530a5eef9cd.PNG)
