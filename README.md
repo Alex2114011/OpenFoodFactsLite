@@ -5,9 +5,9 @@ AVFoundation\
 URLSession\
 NSCache
 
-Приложение позволяет проводить поиск продукта по названию и по штрих-коду.
-![IMG_1381](https://user-images.githubusercontent.com/61419902/137880662-eafbdb2b-4904-49dc-8ec5-a530a5eef9cd.PNG)
-![IMG_1382](https://user-images.githubusercontent.com/61419902/137880671-241057d1-1dd9-4ccc-9214-1ad10b68bb34.PNG)
-![IMG_1383](https://user-images.githubusercontent.com/61419902/137880685-6cfde6aa-d42c-46b2-91fe-b5ef1df5c4ee.PNG)
-![IMG_1385](https://user-images.githubusercontent.com/61419902/137880688-a35743ea-c2fa-4662-8204-be4e609a1dcd.PNG)
-![1](https://user-images.githubusercontent.com/61419902/146640098-ecb7b462-d7b4-441a-b6c0-3d68f3d32984.png)
+Приложение позволяет проводить поиск продукта по названию и по штрих-коду через камеру смартона.
+![1](https://user-images.githubusercontent.com/61419902/146640124-b1048bd2-d48a-4c3f-85de-613e4b7fbd33.png)\
+![2](https://user-images.githubusercontent.com/61419902/146640215-d7f61e2a-5eb1-44fe-9a77-8687a84ba2bc.png)\
+![3](https://user-images.githubusercontent.com/61419902/146640258-3db93cc4-d1f7-450f-b7a0-8c43b574a281.png)\
+![4](https://user-images.githubusercontent.com/61419902/146640643-b476372e-9f9d-4d81-8399-d35e0a4ad5b3.jpeg)\
+![5](https://user-images.githubusercontent.com/61419902/146640701-52b82781-03e5-49dd-a59f-8e409fefb525.jpeg)
